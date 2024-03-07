@@ -1,23 +1,20 @@
 package edu.eci.arsw.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import jakarta.persistence.Entity;
+import net.bytebuddy.asm.Advice;
 import org.aspectj.weaver.Position;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Random;
+@Entity
 
 public class Board {
 
-        private final int row;
-        private final int col;
-
-    public int getRow() {
-        return row;
-    }
-
-    public int getCol() {
-        return col;
-    }
-
-    private final Square[][] grid;
+    @Getter private final int row;
+    @Getter private final int col;
+    @Getter @Setter private final Square[][] grid;
 
 
         public Board(int row,int col){
@@ -33,7 +30,7 @@ public class Board {
         }
 
         // este metodo ya hace la validacion si la casilla esta o no esta ocupada, faltaria colorear del mismo color que el jugador el cuadro de 3x3
-    public Position locate_player(){
+    public Position locatePlayer(Player player){
         Random random = new Random();
         int x = random.nextInt(col);
         int y = random.nextInt(row);
@@ -41,7 +38,7 @@ public class Board {
             Position pos = new Position(x,y);
             return pos;
         }else{
-            locate_player();
+            locatePlayer(player);
         }
         return null;
 
