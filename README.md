@@ -22,7 +22,7 @@ The technology stack includes:
 
 ![Diagram 1](/img/diagram1.png)
 
-![Diagram 2](/img/diagram2.png)
+![Diagram 2](/img/Diagram2.png)
 
 ## Team members
 
